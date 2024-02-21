@@ -14,7 +14,9 @@ app.use(compression())
 // morgan("short")
 // morgan("tiny")
 // init db
-
+require('./dbs/init.mongodb')
+const { countConnect } = require('./helpers/check.connect')
+countConnect
 // init router
 app.get('/',(req, res, next) => {
     const strCompress = 'Hello Factipjs'
