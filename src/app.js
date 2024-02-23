@@ -1,3 +1,4 @@
+require('dotenv').config()
 const compression = require('compression')
 const express = require('express')
 const { default: helmet } = require('helmet')
@@ -15,14 +16,15 @@ app.use(compression())
 // morgan("tiny")
 // init db
 require('./dbs/init.mongodb')
-const { countConnect } = require('./helpers/check.connect')
-countConnect
+// const { checkOverload } = require('./helpers/check.connect')
+// checkOverload()
+
 // init router
 app.get('/',(req, res, next) => {
-    const strCompress = 'Hello Factipjs'
+    // const strCompress = 'Hello Factipjs'
     return res.status(200).json({
         message: 'Welcome Fantipjs',
-        metadata: strCompress.repeat(100000)
+        // metadata: strCompress.repeat(100000)
     })
 })
 // handling error 
